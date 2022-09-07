@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import UserCRUD from './pages/UserCRUD';
 import SuperHeroes from './pages/SuperHeroes'
 import RQSuperHeroes from './pages/RQSuperHeroes'
+import SuperHeroDetail from './pages/SuperHeroDetail'
 import { QueryClientProvider, QueryClient } from 'react-query';
 import {ReactQueryDevtools} from 'react-query/devtools'
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/users' element={<UserCRUD />} />
         <Route path='/super' element={<SuperHeroes />} />
         <Route path='/query' element={<RQSuperHeroes />} />
+        <Route path='/query/:id' element={<SuperHeroDetail />} />
       </Routes>
       <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>

@@ -7,7 +7,10 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import UserCRUD from './pages/UserCRUD';
 import SuperHeroes from './pages/SuperHeroes'
+import DynamicParallelQuery from './pages/DynamicParallelQuery'
+import ParallelPage from './pages/ParallelPage'
 import RQSuperHeroes from './pages/RQSuperHeroes'
+import PaginationWithQuery from './pages/PaginationWithQuery'
 import SuperHeroDetail from './pages/SuperHeroDetail'
 import { QueryClientProvider, QueryClient } from 'react-query';
 import {ReactQueryDevtools} from 'react-query/devtools'
@@ -27,6 +30,9 @@ function App() {
         <Route path='/super' element={<SuperHeroes />} />
         <Route path='/query' element={<RQSuperHeroes />} />
         <Route path='/query/:id' element={<SuperHeroDetail />} />
+        <Route path='/parallel-query' element={<ParallelPage />} />
+        <Route path='/pagination' element={<PaginationWithQuery />} />
+        <Route path='/dynamic-parallel-query' element={<DynamicParallelQuery ids = {[1, 3]} />} />
       </Routes>
       <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>

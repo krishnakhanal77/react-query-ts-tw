@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useQuery } from "react-query"
+import { useMutation, useQuery } from "react-query"
 
 const fetchData = () => {
   return axios.get('http://localhost:4000/superheroes')
@@ -25,4 +25,20 @@ export const useFetchedData = (handleSuccess, handleError) => {
       // }
     }
   )
+}
+
+const fetchedDetails = (id) => {
+  return axios.get(`http://localhost:4000/superheroes/${id}`)
+}
+
+export const useFetchedDetails = (id) => {
+  return useQuery(['detail', id], () => fetchedDetails(id))
+}
+
+const addData = (addData) =>{
+  return axios.post('http://localhost:4000/superheroes', addData)
+}
+
+export const useFormPost = () =>{
+return useMutation(addData)
 }

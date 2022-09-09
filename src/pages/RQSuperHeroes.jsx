@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useQuery } from 'react-query'
 import axios from 'axios';
-import { useFetchedData } from '../hooks/useFetchedData'
+import { useFetchedData } from '../hooks/useQueryHooks'
 import { NavLink, useParams } from 'react-router-dom';
 // () => {
 //   return axios.get('http://localhost:4000/superheroes')

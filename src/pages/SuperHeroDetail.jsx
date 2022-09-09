@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useFetchedDetails } from '../hooks/useFetchedDetails'
+import { useFetchedDetails } from '../hooks/useQueryHooks'
 
 const SuperHeroDetail = () => {
 

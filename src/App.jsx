@@ -6,6 +6,7 @@ import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import UserCRUD from './pages/UserCRUD';
+import QueryForm from './pages/QueryForm';
 import SuperHeroes from './pages/SuperHeroes'
 import DynamicParallelQuery from './pages/DynamicParallelQuery'
 import ParallelPage from './pages/ParallelPage'
@@ -33,6 +34,7 @@ function App() {
         <Route path='/parallel-query' element={<ParallelPage />} />
         <Route path='/pagination' element={<PaginationWithQuery />} />
         <Route path='/dynamic-parallel-query' element={<DynamicParallelQuery ids = {[1, 3]} />} />
+        <Route path='/form' element={<QueryForm />} />
       </Routes>
       <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>

@@ -20,15 +20,15 @@ const NavBar = () => {
             <span className='text-xl font-sans font-medium text-blue-700'> TailWind</span>
           </div>
 
-          <div onClick={() => setOpen(!open)} className='text-3xl absolute right-8 top-6 cursor-pointer md:hidden'>
-            <div >{open ? "opt" : "crs"} </div>
+          <div onClick={() => setOpen(!open)} className='text-3xl absolute right-8 top-2 cursor-pointer md:hidden'>
+            <div >{open ? "crs" : "opt"} </div>
           </div>
 
           <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-20 ' : 'top-[-490px]'}`}>
             {
               Links?.map((link) => (
                 <li key={link.name} className='md:mr-8 text-lg md:my-0 my-7'>
-                  <NavLink to={link.link} className='text-gray-800 hover:text-gray-400 duration-500'>{link.name}</NavLink>
+                  <NavLink  onClick={() => setOpen(false)} to={link.link} className='text-gray-800 hover:text-gray-400 duration-500'>{link.name}</NavLink>
                 </li>
               ))
             }

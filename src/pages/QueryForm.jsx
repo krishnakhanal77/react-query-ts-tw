@@ -28,7 +28,7 @@ const QueryForm = () => {
     console.log("this is error message ")
   }
 
-  const { isLoading, data, isError, error, isFetching } = useFetchedData(handleSuccess, handleError)
+  const { isLoading, data, isError, error, isFetching, refetch } = useFetchedData(handleSuccess, handleError)
 
   // console.log(isFetching, isLoading)
   if (isLoading) {
@@ -70,6 +70,7 @@ const QueryForm = () => {
       {/* {data.map((item) => {
         return <div key={item.id}>{item.name}</div>
       })} */}
+        <button className='border-solid border-2 border-indigo-600 rounded-md px-2 m-2' onClick={refetch}>Fetch heroes</button>
       {data?.data.map((item) => {
         return <div key={item.id} >
           <NavLink to={`/query/${item.id}`}>

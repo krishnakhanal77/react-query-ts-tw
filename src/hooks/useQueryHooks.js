@@ -1,12 +1,12 @@
 import axios from "axios"
-import { useMutation, useQuery } from "react-query"
+import { useMutation, useQuery, useQueryClient } from "react-query"
 
 const fetchData = () => {
   return axios.get('http://localhost:4000/superheroes')
 }
 
 export const useFetchedData = (handleSuccess, handleError) => {
- return useQuery(
+  return useQuery(
     'super-heroes',
     fetchData,
     {//refetch handle fetching of data manully 
@@ -35,10 +35,21 @@ export const useFetchedDetails = (id) => {
   return useQuery(['detail', id], () => fetchedDetails(id))
 }
 
-const addData = (addData) =>{
+const addData = (addData) => {
   return axios.post('http://localhost:4000/superheroes', addData)
 }
 
-export const useFormPost = () =>{
-return useMutation(addData)
+export const useFormPost = () => {
+  const queryClient = useQueryClient()
+  return useMutation(addData, {
+    onSuccess: (data) => {
+      //  queryClient.invalidateQueries('super-heroes', )
+      queryClient.setQueryData('super-heroes', (oldQueryData) => {
+        return {
+          ...oldQueryData,
+          data: [...oldQueryData.data, data.data],
+        }
+      })
+    }
+  })
 }
